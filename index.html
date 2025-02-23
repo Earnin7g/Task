@@ -409,8 +409,14 @@
                 return;
             }
 
-            balance += 100;
-            document.getElementById("balance").innerText = `${balance} جنيه`;
+            // تحديد المهام التي لا تضيف مالاً
+            const noRewardTasks = [8, 9, 10]; // مهمة حمل الكتاب ومهمة رابط مختصر
+
+            if (!noRewardTasks.includes(index)) {
+                balance += 100;
+                document.getElementById("balance").innerText = `${balance} جنيه`;
+            }
+
             completedTasks[taskKey] = true;
             verifyButton.disabled = true;
 
@@ -433,4 +439,4 @@
         loadTasks();
     </script>
 </body>
-</html>
+    </html>
